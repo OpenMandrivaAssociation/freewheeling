@@ -26,6 +26,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  alsa-lib-devel jackit-devel
 BuildRequires:  SDL_ttf-devel SDL_gfx-devel freetype2-devel liblo-devel
 BuildRequires:  libxml2-devel fluidsynth-devel sndfile-devel libvorbis-devel
+BuildRequires:  gnutls-devel
 
 %description
 FreeWheeling is an audio tool for live looping. It provides a highly
