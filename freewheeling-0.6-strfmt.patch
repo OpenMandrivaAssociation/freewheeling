@@ -1,0 +1,29 @@
+--- src/fweelin_config.cc.orig	2011-03-18 06:06:02.000000000 +0100
++++ src/fweelin_config.cc	2011-04-21 15:08:50.829195597 +0200
+@@ -690,7 +690,7 @@
+   int str_len = strlen(str_base)+4;
+   char basebuf[str_len];
+   if (contnum == 0)
+-    sprintf(basebuf,str_base);
++    sprintf(basebuf,"%s",str_base);
+   else 
+     snprintf(basebuf,str_len,"%s%d",str_base,contnum);
+ 
+@@ -1140,7 +1140,7 @@
+           int str_len = strlen(str_base)+4;
+           char buf[str_len];
+           if (contnum == 0)
+-            sprintf(buf,str_base);
++            sprintf(buf,"%s",str_base);
+           else 
+             snprintf(buf,str_len,"%s%d",str_base,contnum);
+ 
+@@ -3284,7 +3284,7 @@
+       if (n != 0) {
+         nw->filename = new char[xmlStrlen(n)+1];
+         strcpy(nw->filename,(char*)n);
+-        printf(nw->filename);
++        printf("%s", nw->filename);
+         xmlFree(n);
+       }
+ 
