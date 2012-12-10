@@ -9,7 +9,7 @@ Name:           freewheeling
 Summary:        Live Audio Looper
 Version:        0.6
 %if %branch
-Release:        %mkrel -c %svn_snapshot 2
+Release:        %mkrel -c %svn_snapshot 1
 %else
 Release:        %mkrel 1
 %endif
@@ -22,11 +22,19 @@ Patch0:         freewheeling-0.6-strfmt.patch
 URL:            http://%{name}.sourceforge.net/
 License:        GPLv2
 Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  alsa-lib-devel jackit-devel
-BuildRequires:  SDL_ttf-devel SDL_gfx-devel freetype2-devel liblo-devel
-BuildRequires:  libxml2-devel fluidsynth-devel sndfile-devel libvorbis-devel
-BuildRequires:  gnutls-devel
+
+BuildRequires:  pkgconfig(alsa)
+BuildRequires:  pkgconfig(jack)
+BuildRequires:  pkgconfig(SDL_ttf) 
+BuildRequires:  pkgconfig(SDL_gfx)
+BuildRequires:  pkgconfig(freetype2)
+BuildRequires:  pkgconfig(liblo)
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(fluidsynth) 
+BuildRequires:  pkgconfig(sndfile)
+BuildRequires:  pkgconfig(vorbis)
+BuildRequires:  pkgconfig(ogg)
+BuildRequires:  pkgconfig(gnutls)
 
 %description
 FreeWheeling is an audio tool for live looping. It provides a highly
@@ -42,6 +50,7 @@ loops in real-time.
 %endif
 
 %build
+export LDFLAGS="${LDFLAGS} -logg -lSDL" 
 %if %branch
 autoreconf -i
 %endif
@@ -50,7 +59,6 @@ autoreconf -i
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 #menu
@@ -68,14 +76,16 @@ Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
 Encoding=UTF-8
 EOF
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README NEWS COPYING AUTHORS
 %{_bindir}/fweelin
 %{_datadir}/fweelin
-
 %{_datadir}/applications/mandriva-%{name}.desktop
+
+
+
+%changelog
+* Thu Apr 21 2011 Frank Kober <emuse@mandriva.org> 0.6-0.svn20110421.1mdv2011.0
++ Revision: 656495
+- import freewheeling
 
