@@ -11,7 +11,7 @@ Version:        0.6
 %if %branch
 Release:        %mkrel -c %svn_snapshot 1
 %else
-Release:        %mkrel 1
+Release:        2
 %endif
 %if %branch
 Source:         http://freewheeling.svn.sourceforge.net/viewvc/freewheeling/%{name}.tar.gz
