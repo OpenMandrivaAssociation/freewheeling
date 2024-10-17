@@ -19,7 +19,7 @@ Source:         http://freewheeling.svn.sourceforge.net/viewvc/freewheeling/%{na
 Source:         http://dl.sf.net/%{name}/%{version}/%{name}-%{version}.tar.bz2
 %endif
 Patch0:         freewheeling-0.6-strfmt.patch
-URL:            http://%{name}.sourceforge.net/
+URL:            https://%{name}.sourceforge.net/
 License:        GPLv2
 Group:          Sound
 
