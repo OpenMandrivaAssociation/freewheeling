@@ -23,6 +23,11 @@ URL:            https://%{name}.sourceforge.net/
 License:        GPLv2
 Group:          Sound
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(jack)
 BuildRequires:  pkgconfig(SDL_ttf) 
