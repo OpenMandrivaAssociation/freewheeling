@@ -9,7 +9,7 @@ Name:           freewheeling
 Summary:        Live Audio Looper
 Version:        0.6
 %if %branch
-Release:        %mkrel -c %svn_snapshot 1
+Release:        -c %svn_snapshot 1.1
 %else
 Release:        2
 %endif
